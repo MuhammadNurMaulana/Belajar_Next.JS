@@ -1,27 +1,14 @@
 // Next.js API route support: https://nextjs.org/docs/api-routes/introduction
+import { retrieveData } from "@/utils/db/service";
 import type { NextApiRequest, NextApiResponse } from "next";
 
 type Data = {
-  id: number;
-  name: string;
-  price: number;
-  size: string;
-}[];
+  status: boolean;
+  statusCode: number;
+  data: any;
+};
 
-export default function handler(req: NextApiRequest, res: NextApiResponse<Data>) {
-  const data: Data = [
-    {
-      id: 1,
-      name: "Baju Baru",
-      price: 500000,
-      size: "xl",
-    },
-    {
-      id: 2,
-      name: "Baju Lama",
-      price: 100000,
-      size: "l",
-    },
-  ];
-  res.status(200).json(data);
+export default async function handler(req: NextApiRequest, res: NextApiResponse<Data>) {
+  const data = await retrieveData("products");
+  res.status(200).json({ status: true, statusCode: 200, data });
 }
