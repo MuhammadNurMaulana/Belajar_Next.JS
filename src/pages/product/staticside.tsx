@@ -20,7 +20,7 @@ const staticside = ({ product }: ProductProps) => {
 
 export default staticside;
 
-export async function getStaticProps() {
+export async function getStaticSideProps() {
   const res = await fetch("http://localhost:3000/api/product");
   const response = await res.json();
 

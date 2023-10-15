@@ -69,6 +69,10 @@
   margin-top: 10px;
 }
 
+.items {
+  margin: 1rem auto;
+}
+
 @keyframes blinking {
   0% {
     opacity: 0;

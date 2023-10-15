@@ -1,3 +1,4 @@
+import Link from "next/link";
 import React from "react";
 
 type ProductProps = {
@@ -17,12 +18,12 @@ const ProductView = ({ product }: ProductProps) => {
         {product.length > 0 ? (
           <>
             {product.map((item) => (
-              <div key={item.id} className="flex-card__item">
+              <Link href={`/product/${item.id}`} key={item.id} className="flex-card__item">
                 <img src={item.img} alt={item.title} className="flex-card__img" />
                 <h4>{item.title}</h4>
                 <p>{item.name}</p>
                 <h4>{item.price.toLocaleString("id-ID", { style: "currency", currency: "IDR" })}</h4>
-              </div>
+              </Link>
             ))}
           </>
         ) : (
