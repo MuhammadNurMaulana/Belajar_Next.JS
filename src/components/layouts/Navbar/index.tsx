@@ -1,6 +1,6 @@
 import { signIn, useSession, signOut } from "next-auth/react";
 const Navbar = () => {
-  const { data } = useSession();
+  const { data }: any = useSession();
   return (
     <div className="navbar">
       <div>Navbar</div>
