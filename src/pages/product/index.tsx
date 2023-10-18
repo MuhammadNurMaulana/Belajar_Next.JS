@@ -6,18 +6,12 @@ import useSwr from "swr";
 const fetcher = (url: string) => fetch(url).then((res) => res.json());
 
 const ProductPage = () => {
-  const [isLogin, setIsLogin] = useState(true);
   const [product, setProduct] = useState([]);
   const [warung, setWarung] = useState([]);
   const [minuman, setMinuman] = useState([]);
-  const { push } = useRouter();
 
   const { data, isLoading } = useSwr("/api/product", fetcher);
-  useEffect(() => {
-    if (!isLogin) {
-      push("/auth/login");
-    }
-  }, []);
+
   useEffect(() => {
     fetch("/api/product")
       .then((res) => res.json())
@@ -29,7 +23,6 @@ const ProductPage = () => {
       .then((res) => res.json())
       .then((res) => {
         setWarung(res.data);
-        console.log(res.data);
       });
   }, []);
 

@@ -29,7 +29,7 @@ const ProductPage = ({ product }: ProductProps) => {
       {/* client-side */}
       {/* <DetailProduct product={isLoading ? [] : data.data} /> */}
 
-      {/* Server-side */}
+      {/* Server-side & Static-side*/}
       <DetailProduct product={product} />
     </div>
   );
